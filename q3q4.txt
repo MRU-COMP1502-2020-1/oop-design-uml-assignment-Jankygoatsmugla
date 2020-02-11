@@ -1,0 +1,28 @@
+Q3:
+
+prog 2 is better than prog 1 because the instance variable is private, which means you cant access it directly
+(tightly coupled) leading to increased security. 
+
+Q4:
+
+It doesnt actually take in any data from the file name, URL, or network.
+
+public String readFile(String fileName){
+    String output = "";
+    File file = new File(fileName);
+    try{
+      Scanner fileScanner = new Scanner(file);
+      while(fileScanner.hasNext()){
+        output += (fileScanner.nextLine()); 
+        
+      }
+    }
+    catch(FileNotFoundException e){
+      return ("Unable to open: " + fileName);
+    }
+
+
+    return output;
+  }
+
+replace fileScanner with a buffered reader or something for URL/Network.
